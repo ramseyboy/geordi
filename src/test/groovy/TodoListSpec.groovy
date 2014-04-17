@@ -1,7 +1,7 @@
 import spock.lang.Specification
 
 
-class TestSpec extends Specification {
+class TodoListSpec extends Specification {
 
     def setupSpec() {
 
@@ -13,7 +13,8 @@ class TestSpec extends Specification {
 
     
     def """In the todolist section, when the user completes n amount of tasks the todos list should reflect that with the correct number of complete tasks and the correct number of tasks all together"""() {
-
+        expect:
+        true
     }
 
     def """if some of the todo's tasks are complete, the return if complete method should return appropriately"""() {

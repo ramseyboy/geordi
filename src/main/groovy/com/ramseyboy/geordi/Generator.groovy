@@ -9,25 +9,29 @@ import org.yaml.snakeyaml.Yaml
 public class Generator {
 
     def generateTests(String reqFileName) {
-        String specs = supplySpecs(reqFileName)
-        new File("src/main/resources/results.groovy").withWriter { out ->
-            out.writeLine(supplyClass(specs).toString())
+        Yaml yaml = new Yaml();
+        Map<String, List<String>> reqMap = yaml.load(this.getClass().getResource(reqFileName).text)
+        List<String> reqList = reqMap.get("Specifications")
+        String feature = reqMap.get("Feature")
+
+        String specs = supplySpecs(reqList)
+
+        def spec = supplyClass(feature, specs).toString()
+
+        new File("src/test/groovy/${feature}.groovy").withWriter { out ->
+            out.writeLine(spec)
         }
     }
 
-    def supplyClass(String specs) {
+    def supplyClass(String specName, String specs) {
         def classTemplate = this.getClass().getResource('/spec.template')
 
-        def binding = [methods:specs]
+        def binding = [className:specName, methods:specs]
         def engine = new GStringTemplateEngine()
         return engine.createTemplate(classTemplate).make(binding)
     }
 
-    def supplySpecs(String reqFileName) {
-
-        Yaml yaml = new Yaml();
-        List<String> reqList = yaml.load(this.getClass().getResource('/bdd_parser_test.yaml').text)
-
+    def supplySpecs(List<String> reqList) {
         def methodTemplate = this.getClass().getResource('/method.template')
 
         def spockMethods = new ArrayList<String>()
