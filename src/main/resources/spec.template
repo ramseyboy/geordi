@@ -11,7 +11,5 @@ class TestSpec extends Specification {
 
     }
 
-    def """$requirement"""() {
-
-    }
+    ${methods}
 }

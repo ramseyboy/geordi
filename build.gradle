@@ -1,6 +1,5 @@
-apply plugin: 'java'
+apply plugin: 'groovy'
 apply plugin: 'application'
-apply plugin: 'idea'
 
 def version = '1.0.0-SNAPSHOT'
 
@@ -11,6 +10,7 @@ repositories {
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.2.2'
     compile 'org.spockframework:spock-core:0.7-groovy-2.0'
+    compile 'org.yaml:snakeyaml:1.13'
 }
 
-mainClassName = 'com.ramseyboy.vulcanscienceacademy.Main'
+mainClassName = 'com.ramseyboy.geordi.Main'
