@@ -1,0 +1,16 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'idea'
+
+def version = '1.0.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.2.2'
+    compile 'org.spockframework:spock-core:0.7-groovy-2.0'
+}
+
+mainClassName = 'com.ramseyboy.vulcanscienceacademy.Main'

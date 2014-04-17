@@ -1,0 +1,17 @@
+import spock.lang.Specification
+
+
+class TestSpec extends Specification {
+
+    def setupSpec() {
+
+    }
+
+    def cleanupSpec() {
+
+    }
+
+    def """$requirement"""() {
+
+    }
+}
