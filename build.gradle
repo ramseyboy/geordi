@@ -1,16 +1,70 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://oss.sonatype.org/content/repositories/snapshots/'
+        }
+    }
+    dependencies {
+        classpath 'com.jimdo.gradle:gradle-apt-plugin:0.2-SNAPSHOT'
+    }
+}
+
 apply plugin: 'groovy'
 apply plugin: 'application'
+apply plugin: 'apt'
+apply plugin: 'idea'
 
-def version = '1.0.0-SNAPSHOT'
+def version = '0.0.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven {
+        url 'https://oss.sonatype.org/content/repositories/snapshots/'
+    }
+}
+
+configurations {
+    provided
+}
+
+idea.module {
+    scopes.PROVIDED.plus += configurations.provided
+}
+
+sourceSets {
+    main.compileClasspath += configurations.provided
+    test.compileClasspath += configurations.provided
+    test.runtimeClasspath += configurations.provided
 }
 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.2.2'
-    compile 'org.spockframework:spock-core:0.7-groovy-2.0'
     compile 'org.yaml:snakeyaml:1.13'
+
+    testCompile('org.spockframework:spock-core:0.7-groovy-2.0') {
+        exclude module: 'groovy-all'
+    }
 }
 
-mainClassName = 'com.ramseyboy.geordi.Main'
+mainClassName = 'com.ramseyboy.geordi.GeordiApp'
+
+// Creates executable standalone JAR file of the application
+task uberJar(type: Jar, dependsOn:[':compileJava',':compileGroovy']) {
+    from files(sourceSets.main.output.classesDir)
+    from files(sourceSets.main.output.resourcesDir)
+    from(configurations.runtime.asFileTree.files.collect { zipTree(it) }) {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+    }
+    manifest {
+        attributes 'Implementation-Title': 'Groovy app architecture example',
+                'Implementation-Version': version,
+                'Built-By': System.getProperty('user.name'),
+                'Built-Date': new Date(),
+                'Built-JDK': System.getProperty('java.version'),
+                'Main-Class': mainClassName
+    }
+
+}

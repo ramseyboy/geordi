@@ -1,38 +1,40 @@
 package com.ramseyboy.geordi
 
+import com.ramseyboy.geordi.model.Feature
+import com.ramseyboy.geordi.model.Specification
 import groovy.text.GStringTemplateEngine
-import org.yaml.snakeyaml.Yaml
 
 /**
  * Created by walkerhannan on 4/16/14.
  */
-public class Generator {
+class TestGenerator {
 
     def generateTests(String reqFileName) {
-        Yaml yaml = new Yaml();
-        Map<String, List<String>> reqMap = yaml.load(this.getClass().getResource(reqFileName).text)
-        List<String> reqList = reqMap.get("Specifications")
-        String feature = reqMap.get("Feature")
+        Specification spec = new YamlParser(fileName:reqFileName).parse()
+
+        List<Feature> reqList = spec.getFeatures()
+        String feature = "${spec.getSpecName()}${if (!spec.getSpecName().contains("Spec")) "Spec"}"
 
         String specs = supplySpecs(reqList)
 
-        def spec = supplyClass(feature, specs).toString()
+        def specification = supplyClass(feature, specs).toString()
 
-        new File("src/test/groovy/${feature}.groovy").withWriter { out ->
-            out.writeLine(spec)
+        new File("src/test/groovy/${feature}.groovy")
+                .withWriter { out ->
+            out.writeLine(specification)
         }
     }
 
     def supplyClass(String specName, String specs) {
-        def classTemplate = this.getClass().getResource('/spec.template')
+        def classTemplate = this.getClass().getResource('/templates/spec.template')
 
         def binding = [className:specName, methods:specs]
         def engine = new GStringTemplateEngine()
         return engine.createTemplate(classTemplate).make(binding)
     }
 
-    def supplySpecs(List<String> reqList) {
-        def methodTemplate = this.getClass().getResource('/method.template')
+    def supplySpecs(List<Feature> reqList) {
+        def methodTemplate = this.getClass().getResource('/templates/method.template')
 
         def spockMethods = new ArrayList<String>()
 

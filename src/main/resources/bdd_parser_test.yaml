@@ -1,15 +1,15 @@
 --- # Test methods
-Feature: TodoListSpec
-Specifications:
+Specification: TodoList
+Features:
     - In the todolist section, when the user completes n amount of tasks the todos list should reflect that with the correct number of complete tasks and the correct number of tasks all together
-        #When: When the user completes n amount of tasks
-        #Then: The todolist should reflect that with the correct number of complete tasks
-        #And: The it should display the correct number of tasks all together
+        #- When: When the user completes n amount of tasks
+        #- Then: The todolist should reflect that with the correct number of complete tasks
+        #- And: The it should display the correct number of tasks all together
 
     - if some of the todo's tasks are complete, the return if complete method should return appropriately
-        #Expect: Implement
+        #- Expect: Implement
         #Where: Implement
 
     - if all of the todo's tasks are incomplete, the return if complete method should return appropriately
-        #Given: Implement
+        #- Given: Implement
         #Expect: Implement
