@@ -13,7 +13,7 @@ apply plugin: 'idea'
 
 def version = '0.1-SNAPSHOT'
 
-mainClassName = 'com.ramseyboy.geordi.GeordiApp'
+mainClassName = 'me.ramseyboy.geordi.GeordiApp'
 
 repositories {
     jcenter()
@@ -21,8 +21,8 @@ repositories {
 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.4.7'
-    compile 'org.yaml:snakeyaml:1.16'
     compile 'com.squareup:javapoet:1.7.0'
+    compile 'junit:junit:4.12'
 
     testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
     testCompile "org.hamcrest:hamcrest-core:1.3"

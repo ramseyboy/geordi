@@ -1,0 +1,13 @@
+{
+  "specification": "GeordiApp",
+  "features": [
+    {
+      "feature": "When the app runs, true should be equal to true",
+      "block": {
+        "given": "An instance of GeordiApp",
+        "when": "The main runnable is run",
+        "then": "true should equal true"
+      }
+    }
+  ]
+}
