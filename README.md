@@ -1,3 +1,3 @@
-# Geordi
+# geordi
 
-Groovy test generator
+Junit test generator based on a json schema
