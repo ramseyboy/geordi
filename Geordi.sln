@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geordi.App", "Geordi.App\Ge
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geordi.Test", "Geordi.Test\Geordi.Test.csproj", "{FC8F26F0-6B9C-4150-BD14-08E604E1A971}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geordi.Graph", "Geordi.Graph\Geordi.Graph.csproj", "{A9A0AC98-65E0-42B7-ACE2-A0B7B6A1A573}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geordi.Seeder", "Geordi.Seeder\Geordi.Seeder.csproj", "{79C911DF-1F43-42A4-83D3-5DFCF4288432}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{FC8F26F0-6B9C-4150-BD14-08E604E1A971}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC8F26F0-6B9C-4150-BD14-08E604E1A971}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC8F26F0-6B9C-4150-BD14-08E604E1A971}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9A0AC98-65E0-42B7-ACE2-A0B7B6A1A573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9A0AC98-65E0-42B7-ACE2-A0B7B6A1A573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9A0AC98-65E0-42B7-ACE2-A0B7B6A1A573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9A0AC98-65E0-42B7-ACE2-A0B7B6A1A573}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79C911DF-1F43-42A4-83D3-5DFCF4288432}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79C911DF-1F43-42A4-83D3-5DFCF4288432}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79C911DF-1F43-42A4-83D3-5DFCF4288432}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79C911DF-1F43-42A4-83D3-5DFCF4288432}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
