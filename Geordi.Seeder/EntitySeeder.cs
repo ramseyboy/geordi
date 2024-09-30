@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Geordi.Seeder;
 
-public class Seeder(DbContext context)
+public class EntitySeeder(DbContext context)
 {
     public async Task Seed()
     {

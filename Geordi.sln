@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geordi.Graph", "Geordi.Grap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geordi.Seeder", "Geordi.Seeder\Geordi.Seeder.csproj", "{79C911DF-1F43-42A4-83D3-5DFCF4288432}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geordi.CodeGenerator", "Geordi.CodeGenerator\Geordi.CodeGenerator.csproj", "{AEB80639-6FAC-48BA-B2D6-73570771290C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{79C911DF-1F43-42A4-83D3-5DFCF4288432}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79C911DF-1F43-42A4-83D3-5DFCF4288432}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79C911DF-1F43-42A4-83D3-5DFCF4288432}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEB80639-6FAC-48BA-B2D6-73570771290C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEB80639-6FAC-48BA-B2D6-73570771290C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEB80639-6FAC-48BA-B2D6-73570771290C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEB80639-6FAC-48BA-B2D6-73570771290C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
